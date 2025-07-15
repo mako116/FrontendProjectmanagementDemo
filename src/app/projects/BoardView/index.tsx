@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useGetTasksQuery, useUpdateTaskStatusMutation } from "@/state/api";
 import React from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
@@ -175,7 +176,7 @@ const Task = ({ task }: TaskProps) => {
       {task.attachments && task.attachments.length > 0 && (
         <Image
           src={`/${task.attachments[0].fileURL}`}
-          alt={task.attachments[0].fileName}
+          alt={task.attachments[0].fileName || ""}
           width={400}
           height={200}
           className="h-auto w-full rounded-t-md"
